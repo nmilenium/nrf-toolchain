@@ -1,0 +1,14 @@
+services:
+  nrf-env:
+    build: .
+    container_name: nrf52840_toolchain
+    environment:
+      - NRF_PORT=${NRF_PORT}
+      - MAKEFILE_PATH=${MAKEFILE_PATH}
+    volumes:
+      - .:/project
+      - ${NRF_SDK_PATH}:/project/nRF5_SDK
+    devices:
+      - "${NRF_PORT}:${NRF_PORT}"
+    stdin_open: true
+    tty: true
