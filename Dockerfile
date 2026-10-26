@@ -8,7 +8,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
   gcc-arm-none-eabi \
   git \
   make \
-  picocom \
   python2.7 \
   python-pip \
   python-setuptools \

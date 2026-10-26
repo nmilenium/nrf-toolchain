@@ -4,4 +4,5 @@ if [ -f .env ]; then
   export $(cat .env | xargs)
 fi
 
-docker compose run -rm nrf-env picocom -b 115200 {NRF-PORT}
+docker run --rm -it --device ${NRF_PORT} --group-add keep-groups \
+  ghcr.io/picocom-ng/picocom:latest -b 115200 ${NRF_PORT}
